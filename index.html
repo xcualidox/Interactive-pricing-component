@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="styles/styles.css">
+    <title>Frontend Mentor | Interactive pricing component</title>
+</head>
+<body>
+    <!-- main content -->
+    <main class="grid">
+        <div class="container ">
+            <!-- main header -->
+            <header class="main-header flex">
+                <h1 class="dark-text">Simple, traffic-based pricing</h1>
+                <p class="light-text">Sign-up for our 30-day trial. No credit card required. </p>
+            </header>
+            <!-- price section -->
+            <section class="price-card">
+                <!-- Card header with price per views and price slider -->
+                <header class="card-header grid">
+                    <p class="page-views light-text"><span class="visits-amount">100k</span> Pageviews</p>
+                    <input type="range" name="plan" id="planRange" class="range" min="0" max="100" step="25" value="50">
+                    <h2 class="dark-text flex">
+                        $<span class="amount">16.00</span>
+                        <span class="month light-text ">/ month</span>
+                    </h2>
+                </header>
+                <!-- plan type: Monthly or yearly -->
+                <div class="plan-section flex">
+                    <p class="light-text text-size">Monthly Billing</p>
+                    <button class="disccount-button flex">
+                    </button>
+                    <p  class="disccount light-text text-size" >Yearly Billing </p>
+                </div>
+                <!-- card footer with adventages and submit button -->
+                <footer class="card-footer flex">
+                        <ul class="adventages light-text text-size grid">
+                            <li>Unlimited websites</li>
+                            <li>100% data ownership</li>
+                            <li>Email reports</li>
+                        </ul>
+                        <button class="start-btn">Start my trial</button>
+                </footer>
+            </section>
+        </div>
+    </main>
+    <!-- Attributions -->
+    <footer class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="https://github.com/xcualidox" target="_blank">Alex Cruz</a>.
+    </footer>
+    <script src="js/js.js"></script>
+</body>
+</html>

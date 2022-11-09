@@ -1,0 +1,301 @@
+/* basic styling */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@600;800&display=swap');
+:root{
+    --slider-bar: hsl(174, 77%, 80%);
+    --slider: hsl(174, 86%, 45%);
+    --empty-slider: hsl(224, 65%, 95%);
+    --discount-bg: hsl(14, 92%, 95%);
+    --discount: hsl(15, 100%, 70%);
+    --button-text:hsl(226, 100%, 87%);
+    --white:hsl(0, 0%, 100%);
+    --main-bg: hsl(230, 100%, 99%);
+    --toggle-bg: hsl(223, 50%, 87%);
+    --text:hsl(225, 20%, 60%);
+    --dark-color:hsl(227, 35%, 25%);
+    --porcent: 50%;
+}
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Manrope', sans-serif;
+}
+body{
+    width: 100%;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-color: var(--main-bg);
+    background-image: url(../images/bg-pattern.svg);
+    background-repeat: no-repeat;
+}
+/* main */
+main{
+    height: 100vh;
+    place-items: center;
+}
+main .container{
+    padding-inline: 1.5rem;
+    width: 100%;
+    text-align: center;
+    animation: fromTop 1s ease-out 0s 1 normal backwards;
+}
+.main-header{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../images/pattern-circles.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 9.2rem;
+    margin-bottom:clamp(2rem, 1.5423rem + 1.9531vw, 3.3rem);
+}
+.main-header h1{
+    font-size: clamp(1.3rem, 1.1239rem + 0.7512vw, 1.8rem);
+    margin-bottom: .5rem;
+}
+.main-header p{
+   
+    font-size: clamp(0.8125rem, 0.7465rem + 0.2817vw, 1rem);
+    max-width: 22ch;
+    line-height: 1.6;
+}
+/* utilities */
+.grid{
+    display: grid;
+}
+.flex{
+    display: flex;
+}
+.dark-text{
+    color: var(--dark-color);
+    font-weight: 800;
+}
+.light-text{
+    color: var(--text);
+    font-weight: 600;
+}
+.text-size{
+    font-size: clamp(0.7rem, 0.6648rem + 0.1502vw, 0.8rem);
+}
+/* price card */
+.price-card{
+    padding: 2rem 1.5rem;
+    background-color: var(--white);
+    border-radius: .5rem;
+    box-shadow: hsla(223, 48%, 87%, 0.179) 0px 10px 15px -3px, hsla(223, 48%, 87%, 0.199) 0px 10px 10px -2px; 
+    max-width: 33.5rem;
+    margin-inline: auto;
+}
+/* card header */
+.card-header{}
+.card-header .month{
+    font-size: clamp(0.8125rem, 0.7465rem + 0.2817vw, 1rem);
+}
+.card-header .page-views{
+    text-transform: uppercase;
+    font-size: clamp(0.8125rem, 0.7685rem + 0.1878vw, 0.9375rem);
+    letter-spacing: .15rem;
+}
+.card-header h2{
+    align-items: center;
+    justify-content: center;
+    gap: .3rem;
+    font-size: clamp(2rem, 1.8239rem + 0.7512vw, 2.5rem);
+}
+.range{
+   appearance: none;
+    width: 100%;
+    border: none;
+    margin-block: 2rem;
+}
+.range::-moz-range-track,
+.range::-webkit-slider-runnable-track{
+   background:linear-gradient(to right, var(--slider-bar) var(--porcent),
+   var(--empty-slider) var(--porcent));
+   height: .5rem;
+   border-radius: 2rem;
+}
+.range::-moz-range-thumb,
+.range::-webkit-slider-thumb{
+    border: none;
+    background-color: var(--slider);
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background-image: url(/images/icon-slider.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 60%;
+    box-shadow: 0px 14px 20px 10px hsl(174, 77%, 80%); 
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+.range::-moz-range-thumb:active{
+    cursor: grabbing;
+    background-color: hsl(174, 92%, 36%) !important;
+}
+.range::-webkit-slider-thumb:active{
+    cursor: grabbing;
+    background-color: hsl(174, 92%, 36%) !important;
+}
+.range::-moz-range-thumb:hover{
+    background-color:hsl(174, 81%, 69%) ;
+}
+.range::-webkit-slider-thumb:hover{
+    background-color: hsl(174, 81%, 69%) ;
+}
+/* plan section */
+.plan-section{
+    margin-block: 2rem 2.5rem;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+}
+.plan-section > *{
+    position: relative;
+}
+
+.disccount::after{
+    content: "-25%";
+    position: absolute;
+    font-size: 0.7rem;
+    right: -3rem;
+    top: -.1rem;
+    background-color: var(--discount-bg);
+    color: var(--discount);
+    padding: .2rem .5rem;
+    border-radius: 2rem;
+}
+.plan-section>:first-child{
+    right: .65rem;
+}
+.disccount-button{
+    border: none;
+    align-items: center;
+ 
+    background-color: var(--toggle-bg);
+    width: 2.7rem;
+    height: 1.5rem;
+    border-radius: 2rem;
+    padding-inline: .25rem;
+    cursor: pointer;
+    right: .35rem;
+    transition: background-color .3s ease-in-out;
+}
+.disccount-button:hover{
+    background-color: var(--slider-bar);
+}
+.disccount-button::before{
+    content: "";
+    display: block;
+    height: 1rem;
+    width: 1rem;
+    background-color: var(--white);
+    border-radius: 50%;
+    margin-left: 0;
+    transition: all .5s ease-in-out;
+}
+.active-button::before{
+    margin-left:55%;
+}
+.active-button{
+    background-color: var(--slider);
+}
+/* card footer */
+.card-footer{
+    padding-top: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+}
+.card-footer::before{
+    content: "";
+    position: absolute;
+    width: calc(100% + 3rem);
+    top: 0;
+    background-color:  var(--empty-slider);
+    height: .09rem;
+    opacity: .6;
+}
+.adventages{
+    list-style-image: url(/images/icon-check.svg);
+    gap: .9rem;
+}
+
+.start-btn{
+    border-radius: 2rem;
+    border: none;
+    padding: .8rem 3rem;
+    background-color: var(--dark-color);
+    color: var(--button-text);
+    cursor: pointer;
+    transition: color .3s ease-in-out;
+}
+.start-btn:hover{
+    color: var(--white);
+}
+/* animations */
+@keyframes fromTop {
+	0% {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+/* Attributions */
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
+/* Media queries */
+@media(min-width: 48rem){
+    /* main header */
+    .main-header p{
+        max-width: unset;
+    }
+    /* card */
+    .price-card{
+        padding-inline: 2.5rem;
+    }
+ /* card header */
+ .card-header{
+    row-gap: .5rem;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+ }
+ .card-header .page-views{
+    justify-self: start;
+ }
+ .card-header h2{
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+ }
+ .card-header #planRange{
+    grid-column: span 2;
+ }
+ /* plan section */
+ .disccount::after{
+    content: "25% discount";
+    right: -6rem;
+    top: -.1rem;
+ }
+ /* card footer */
+.card-footer{
+    padding-top: 1.5rem;
+    flex-direction: initial;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    position: relative;
+}
+.card-footer .adventages{
+    text-align: left;
+    padding-left: 1rem;
+}
+}
